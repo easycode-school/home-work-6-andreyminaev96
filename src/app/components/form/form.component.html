@@ -1,0 +1,31 @@
+<div class="card">
+  <div class="card-body">
+    <form
+      [formGroup]="form"
+    >
+      <div class="form-group">
+        <label for="exampleInputTitle">Title</label>
+        <input
+          formControlName="title"
+          type="text"
+          [(ngModel)]="title"
+          class="form-control"
+          id="exampleInputTitle"
+          aria-describedby="titleHelp"
+          placeholder="Enter Title"
+          [ngClass]="{'is-invalid': form.get('title').invalid && form.get('title').touched}"
+        >
+        <small
+          *ngIf="form.get('title').invalid && form.get('title').touched"
+          id="titleHelp"
+          class="text-danger"
+        >
+          Title is incorrect
+        </small>
+      </div>
+      <button *ngIf="!isEdit"(click)="addNewPost()" [disabled]="form.invalid || form.disabled" type="submit" class="btn btn-primary"  >Add post</button>
+      <button *ngIf="isEdit" (click)="editPost()" [disabled]="form.invalid || form.disabled" type="submit" class="btn btn-primary">Edit post</button>
+
+    </form>
+  </div>
+</div>

@@ -1,0 +1,1 @@
+<app-post *ngFor="let post of posts" [post]='post' (editNewPost)='editPost($event)' (deleteNewPost)='deletePost($event)'></app-post>
